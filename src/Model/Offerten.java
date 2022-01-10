@@ -1,15 +1,18 @@
 package Model;
 
 
+import java.util.Objects;
+
 public class Offerten {
     private int Id;
     private String Unternehmensname;
-    private float Preis;
-    private int Prozent;
+    private int Preis;
+    private float Prozent;
     private String Adresse;
-    private Ort Ort;
+    private Model.Ort Ort;
 
-    void Offerten(Integer id, String name, Float preis, Integer prozent, String adresse, Model.Ort ort){
+
+    public Offerten(int id, String name, int preis, float prozent, String adresse, Model.Ort ort){
         this.Id = id;
         this.Unternehmensname = name;
         this.Preis = preis;
@@ -34,7 +37,7 @@ public class Offerten {
         Id = id;
     }
 
-    public int getProzent() {
+    public float getProzent() {
         return Prozent;
     }
 
@@ -54,7 +57,7 @@ public class Offerten {
         return Adresse;
     }
 
-    public void setPreis(float preis) {
+    public void setPreis(int preis) {
         Preis = preis;
     }
 
@@ -64,5 +67,25 @@ public class Offerten {
 
     public void setUnternehmensname(String unternehmensname) {
         Unternehmensname = unternehmensname;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Offerten offer = (Offerten) o;
+        return Objects.equals(Preis, offer.Preis);
+    }
+
+    @Override
+    public String toString() {
+        return "Offerten{" +
+                "Id=" + Id +
+                ", Unternehmensname='" + Unternehmensname + '\'' +
+                ", Preis=" + Preis +
+                ", Prozent=" + Prozent +
+                ", Adresse='" + Adresse + '\'' +
+                ", Ort=" + Ort +
+                '}';
     }
 }

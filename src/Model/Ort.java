@@ -1,5 +1,5 @@
 package Model;
 
 public enum Ort {
-    THURGAU, ZURICH, GALLEN;
+    Thurgau, Zurich, Gallen;
 }

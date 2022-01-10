@@ -27,5 +27,7 @@ public class Main {
         Repository x = new Repository();
         List<Offerten> lis = x.readFromFile("oferte.txt", "&");
         System.out.println(lis);
+
+        x.sort();
     }
 }

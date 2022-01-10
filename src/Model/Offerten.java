@@ -88,4 +88,14 @@ public class Offerten {
                 ", Ort=" + Ort +
                 '}';
     }
+
+    public int kleiner(Offerten o) {
+        if((this.getPreis() + (this.getPreis()*this.getProzent())/100) < (o.getPreis() + (o.getPreis()*o.getProzent())/100))
+            return 1;
+
+        if((this.getPreis() + (this.getPreis()*this.getProzent())/100) >= (o.getPreis() + (o.getPreis()*o.getProzent())/100))
+            return -1;
+
+        return 0;
+    }
 }

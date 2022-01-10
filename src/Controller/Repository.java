@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Repository {
 
@@ -43,14 +44,15 @@ public class Repository {
         bufferedWriter.close();
     }
 
-    /*
-    public List<Offerten> sort(List<Offerten> list){
-        List<Offerten> lista_sortata = new ArrayList<>();
-        lista_sortata = Collections.sort(list);
-        return lista_sortata;
-    }
+    //punctul a si b (se sorteaza si se scrie in file)
+    public void sort() throws IOException {
+        List<Offerten> List = readFromFile("oferte.txt", "&");
+        List<Offerten> sortedList = List.stream()
+                .sorted(Offerten::kleiner).toList();
 
-     */
+        this.writeToFile("offertensortiert.txt",sortedList,"&");
+
+    }
 
 
 }
